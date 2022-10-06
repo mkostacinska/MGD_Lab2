@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,11 +13,19 @@ public class PlayerController : MonoBehaviour
     public int numPickups = 42;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI winText;
+    public TextMeshProUGUI positionText;
+    public TextMeshProUGUI velocityText;
+    public TextMeshProUGUI distanceText;
+    //public Vector3 lastPosition;
 
     private void Start()
     {
         count = 0;
         winText.text = "";
+        positionText.text = "";
+        velocityText.text = "";
+        distanceText.text = "";
+        //lastPosition = transform.position;
         SetCountText();
     }
 
@@ -54,6 +63,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        positionText.text = "player coordinates: " + transform.position.x.ToString() + ", " + transform.position.z.ToString();
+
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        double scalarVelocity = Math.Round(Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.y, 2)), 2);
+
+        velocityText.text = "player velocity: " + scalarVelocity.ToString();
+
+        /* THE VECTOR WAY TO CALCULATE VELOCITY - USING RIGIDBODY AS THIS GIVES ME 0 MOST OF THE TIME :((
+         * Vector3 velocity = (lastPosition - transform.position)/Time.deltaTime; 
+         * 
+         * Float scalarVelocity = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.y,2));
+         * 
+         * lastPosition = transform.position;
+         */
     }
 }
