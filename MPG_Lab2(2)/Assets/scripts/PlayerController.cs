@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI positionText;
     public TextMeshProUGUI velocityText;
     public TextMeshProUGUI distanceText;
+    public double scalarVelocity;
     //public Vector3 lastPosition;
 
     private void Start()
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
         positionText.text = "player coordinates: " + transform.position.x.ToString() + ", " + transform.position.z.ToString();
 
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
-        double scalarVelocity = Math.Round(Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.y, 2)), 2);
+        scalarVelocity = Math.Round(Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.y, 2)), 2);
 
         velocityText.text = "player velocity: " + scalarVelocity.ToString();
 

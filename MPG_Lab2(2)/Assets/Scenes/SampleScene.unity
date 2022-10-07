@@ -1500,6 +1500,7 @@ MonoBehaviour:
   positionText: {fileID: 115764449}
   velocityText: {fileID: 2069554026}
   distanceText: {fileID: 1420997289}
+  scalarVelocity: 0
 --- !u!54 &635491460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3714,6 +3715,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickups: {fileID: 1158607833}
   player: {fileID: 635491458}
+  positionText: {fileID: 115764449}
+  velocityText: {fileID: 2069554026}
+  distanceText: {fileID: 1420997289}
+  mode: 0
 --- !u!4 &1623188280
 Transform:
   m_ObjectHideFlags: 0
